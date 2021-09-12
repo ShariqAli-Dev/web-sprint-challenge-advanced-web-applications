@@ -16,6 +16,10 @@ const BubblePage = () => {
 
   const deleteColor = (colorToDelete) => {};
 
+  useEffect(() => {
+    fetchColorService().then((res) => setColors(res));
+  }, []);
+
   return (
     <div className='container'>
       <ColorList

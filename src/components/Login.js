@@ -32,16 +32,17 @@ const Login = (props) => {
         .post('http://localhost:5000/api/login', { username, password })
         .then((res) => {
           localStorage.setItem('token', res.data.payload);
+          setFormValues({ ...formValues, error: '' });
           push('/home');
         })
         .catch((err) => {
-          alert('Error fetching user');
           console.log(err);
-          debugger;
+          setFormValues({
+            ...formValues,
+            error: 'Username or Password not valid.',
+          });
         });
     }
-
-    setFormValues({ ...formValues, error: '' });
   };
 
   return (
