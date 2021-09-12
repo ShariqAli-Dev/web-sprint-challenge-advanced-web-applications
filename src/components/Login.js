@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { useHistory } from 'react-router-dom';
 const initialFormState = {
   username: '',
   password: '',
   error: '',
 };
 
-const Login = () => {
+const Login = (props) => {
   const [formValues, setFormValues] = useState(initialFormState);
+  const { push } = useHistory();
 
   const onChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -16,7 +17,32 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('Form is being submitted');
+    const { username, password, error } = formValues;
+
+    if (!username || !password) {
+      setFormValues({
+        ...formValues,
+        error: 'Username or Password not valid.',
+      });
+      return;
+    }
+
+    if ((username === 'Lambda') & (password === 'School')) {
+      axios
+        .post('http://localhost:5000/api/login', { username, password })
+        .then((res) => {
+          localStorage.setItem('token', res.data.payload);
+          // push('/') Redirect to the home page
+        })
+        .catch((err) => {
+          alert('Error fetching user');
+          console.log(err);
+          debugger;
+        });
+    }
+
+    setFormValues({ ...formValues, error: '' });
+
     // make a post request to retrieve a token from the api
     // when you have handled the token, navigate to the BubblePage route
   };
@@ -30,19 +56,31 @@ const Login = () => {
           <div>
             <label>
               Username
-              <input value={formValues.username} onChange={onChange} />
+              <input
+                value={formValues.username}
+                onChange={onChange}
+                name='username'
+                id='username'
+              />
             </label>
           </div>
 
           <div>
             <label>
               Password
-              <input value={formValues.password} onChange={onChange} />
+              <input
+                value={formValues.password}
+                onChange={onChange}
+                name='password'
+                id='password'
+              />
             </label>
           </div>
 
           <div>
-            <button type='submit'>LogIn</button>
+            <button type='submit' id='submit'>
+              LogIn
+            </button>
           </div>
         </form>
       </div>
