@@ -27,7 +27,7 @@ const Login = (props) => {
       return;
     }
 
-    if ((username === 'Lambda') & (password === 'School')) {
+    if (username === 'Lambda' && password === 'School') {
       axios
         .post('http://localhost:5000/api/login', { username, password })
         .then((res) => {
