@@ -32,7 +32,7 @@ const Login = (props) => {
         .post('http://localhost:5000/api/login', { username, password })
         .then((res) => {
           localStorage.setItem('token', res.data.payload);
-          // push('/') Redirect to the home page
+          push('/home');
         })
         .catch((err) => {
           alert('Error fetching user');

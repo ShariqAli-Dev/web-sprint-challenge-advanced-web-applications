@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Login from './components/Login';
 import './styles.scss';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
+import BubblePage from './components/BubblePage';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -14,7 +15,19 @@ function App() {
             logout
           </a>
         </header>
-        <Login />
+
+        <Switch>
+          <Route path='/home'>
+            <BubblePage />
+          </Route>
+
+          <Route path='/'>
+            <Login />
+          </Route>
+
+          {/* <Route></Route> */}
+          {/* <Route></Route> */}
+        </Switch>
       </div>
     </Router>
   );
