@@ -1,5 +1,5 @@
 import './styles.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import axiosWithAuth from './helpers/axiosWithAuth';
@@ -17,9 +17,7 @@ function App() {
         window.location.href = '/';
       })
       .catch((err) => {
-        alert('Error logging out');
         console.log(err);
-        debugger;
       });
   };
 
