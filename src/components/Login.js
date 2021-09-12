@@ -1,21 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const initialFormState = {
+  username: '',
+  password: '',
+  error: '',
+};
 
 const Login = () => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+  const [formValues, setFormValues] = useState(initialFormState);
 
-  const error = '';
-  //replace with error state
+  const onChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form is being submitted');
+    // make a post request to retrieve a token from the api
+    // when you have handled the token, navigate to the BubblePage route
+  };
 
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid='loginForm' className='login-form'>
         <h2>Build login form here</h2>
+        <form onSubmit={onSubmit}>
+          <div>
+            <label>
+              Username
+              <input value={formValues.username} onChange={onChange} />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Password
+              <input value={formValues.password} onChange={onChange} />
+            </label>
+          </div>
+
+          <div>
+            <button type='submit'>LogIn</button>
+          </div>
+        </form>
       </div>
 
       <p id='error' className='error'>
-        {error}
+        {formValues.error}
       </p>
     </div>
   );
