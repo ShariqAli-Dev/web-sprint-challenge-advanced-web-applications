@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 const initialFormState = {
@@ -17,7 +17,7 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { username, password, error } = formValues;
+    const { username, password } = formValues;
 
     if (!username || !password) {
       setFormValues({
@@ -42,9 +42,6 @@ const Login = (props) => {
     }
 
     setFormValues({ ...formValues, error: '' });
-
-    // make a post request to retrieve a token from the api
-    // when you have handled the token, navigate to the BubblePage route
   };
 
   return (
