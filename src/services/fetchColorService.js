@@ -1,7 +1,5 @@
 import axiosWithAuth from '../helpers/axiosWithAuth';
 
-const fetchColorService = () => {
-    
-}
+const fetchColorService = () => {};
 
 export default fetchColorService;

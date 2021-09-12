@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import Bubbles from "./Bubbles";
-import ColorList from "./ColorList";
+import Bubbles from './Bubbles';
+import ColorList from './ColorList';
 import fetchColorService from '../services/fetchColorService';
 
 const BubblePage = () => {
@@ -12,16 +12,20 @@ const BubblePage = () => {
     setEditing(value);
   };
 
-  const saveEdit = (editColor) => {
-  };
+  const saveEdit = (editColor) => {};
 
-  const deleteColor = (colorToDelete) => {
-  };
+  const deleteColor = (colorToDelete) => {};
 
   return (
-    <div className="container">
-      <ColorList colors={colors} editing={editing} toggleEdit={toggleEdit} saveEdit={saveEdit} deleteColor={deleteColor}/>
-      <Bubbles colors={colors}/>
+    <div className='container'>
+      <ColorList
+        colors={colors}
+        editing={editing}
+        toggleEdit={toggleEdit}
+        saveEdit={saveEdit}
+        deleteColor={deleteColor}
+      />
+      <Bubbles colors={colors} />
     </div>
   );
 };

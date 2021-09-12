@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 html,
 body,
@@ -16,7 +16,7 @@ body {
 }
 
 .App {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 
   svg {
@@ -65,14 +65,14 @@ header {
     background: white;
     text-decoration: none;
   }
-  
+
   a:hover {
     background: grey;
-  } 
+  }
 }
 
 .container {
-  display:flex
+  display: flex;
 }
 
 .bubble-wrap {
@@ -133,6 +133,6 @@ button {
 }
 
 .login-form {
-  display:inline;
+  display: inline;
   width: 100px;
 }

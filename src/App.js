@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Login from "./components/Login";
-import "./styles.scss";
+import Login from './components/Login';
+import './styles.scss';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <header>
           Color Picker Sprint Challenge
-          <a data-testid="logoutButton" href="#">logout</a>
+          <a data-testid='logoutButton' href='#'>
+            logout
+          </a>
         </header>
       </div>
     </Router>
