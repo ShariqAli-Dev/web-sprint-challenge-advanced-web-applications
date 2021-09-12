@@ -1,20 +1,36 @@
 import './styles.scss';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import axiosWithAuth from './helpers/axiosWithAuth';
 import PrivateRoute from './components/PrivateRoute';
 import BubblePage from './components/BubblePage';
 import Login from './components/Login';
 
 function App() {
+  const logOut = () => {
+    // console.log('I do be logging on tho');
+    axiosWithAuth()
+      .post('/logout')
+      .then((res) => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+      })
+      .catch((err) => {
+        alert('Error logging out');
+        console.log(err);
+        debugger;
+      });
+  };
+
   return (
     <Router>
       <div className='App'>
         <header>
           Color Picker Sprint Challenge
-          <a data-testid='logoutButton' href='#'>
-            logout
-          </a>
+          <button onClick={logOut} data-testid='logoutButton'>
+            Logout
+          </button>
         </header>
 
         <Switch>
