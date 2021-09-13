@@ -1,9 +1,9 @@
 import React from 'react';
 import MutationObserver from 'mutationobserver-shim';
-
 import { render, screen, waitFor } from '@testing-library/react';
 import BubblePage from './BubblePage';
 import fetchColorService from '../services/fetchColorService';
+jest.mock('../services/fetchColorService.js');
 
 test('Renders without errors', () => {
   render(<BubblePage />);
