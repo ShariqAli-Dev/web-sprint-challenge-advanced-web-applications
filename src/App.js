@@ -1,5 +1,5 @@
 import './styles.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import axiosWithAuth from './helpers/axiosWithAuth';
