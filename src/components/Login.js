@@ -33,7 +33,7 @@ const Login = (props) => {
         .then((res) => {
           localStorage.setItem('token', res.data.payload);
           setFormValues({ ...formValues, error: '' });
-          push('/home');
+          push('/bubbles');
         })
         .catch((err) => {
           console.log(err);

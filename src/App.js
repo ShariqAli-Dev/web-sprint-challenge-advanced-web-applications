@@ -32,7 +32,7 @@ function App() {
         </header>
 
         <Switch>
-          <PrivateRoute path='/home' component={BubblePage} />
+          <PrivateRoute path='/bubbles' component={BubblePage} />
           <Route path='/' component={Login} />
         </Switch>
       </div>
