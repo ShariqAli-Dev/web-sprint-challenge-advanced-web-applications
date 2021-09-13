@@ -4,7 +4,7 @@ const fetchColorService = async () => {
   try {
     const promise = await axiosWithAuth().get('/colors');
     return promise.data;
-  } catch (err) {
+  } catch (error) {
     return [];
   }
 };
